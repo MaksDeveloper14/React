@@ -1,0 +1,4 @@
+npx create-react-app
+npm add node-sass react-router-dom bootstrap axios (заходим в созданную папку react-app)
+rm -rf .git // удаляем папку git
+npm start

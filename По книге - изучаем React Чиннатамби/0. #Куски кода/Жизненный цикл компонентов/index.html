@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	
+
+	<script type="text/babel">
+
+		class Clock extends React.Component {
+		  constructor(props) {
+		    super(props);
+		    this.state = {date: new Date()};
+		  }
+
+		  // Монтирование (mounting)
+		  componentDidMount() {
+				// Метод componentDidMount() запускается после того, как компонент отрендерился в DOM
+		  }
+
+		  // Размонтирование (unmounting)
+		  componentWillUnmount() {
+		  	
+		  }
+
+		  render() {
+		    return (
+		      <div>
+		        <h1>Привет, мир!</h1>
+		        <h2>Сейчас {this.state.date.toLocaleTimeString()}.</h2>
+		      </div>
+		    );
+		  }
+		}
+
+		{/* Методы жизнееого цикла могут быть только в классовых компонентах */}
+
+	</script>
+</body>
+</html>

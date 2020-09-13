@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Работа с состояниями</title>
+	<!-- Загрузим React. -->
+  <!-- Примечание: для деплоя на продакшен замените окончание «development.js» на «production.min.js». -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		
+	</div>
+
+	<script type="text/babel">
+
+		{/* Молнии счётчик */}
+		class LightningCounter extends React.Component {
+			constructor(props) {
+				super(props);
+				this.state = {
+					strikes: 0
+				};
+			}
+			render() {
+				console.log(this);
+				return (
+					<h1>{this.state.strikes}</h1>
+				);
+			}
+		}
+
+		{/* Молнии счётчик отображение */}
+		class LightningCounterDisplay extends React.Component {
+			render() {
+				console.log(this);
+				var divStyle = {
+					width: 250,
+					textAlign: "center",
+					backgroundColor: "black",
+					padding: 40,
+					fontFamily: "sans-serif",
+					color: "#999",
+					borderRadius: 10
+				};
+				return (
+					<div style={divStyle}>
+						<LightningCounter/>
+					</div>
+				);
+			}
+		}
+
+	{/* Рендерим в DOM html-документа */}
+		ReactDOM.render(
+			<LightningCounterDisplay/>,
+			document.querySelector('#container')
+		);
+		
+	</script>
+</body>
+</html>

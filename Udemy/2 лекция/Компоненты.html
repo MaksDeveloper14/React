@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Компоненты</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style type="text/css">
+      .car {
+        display: inline-block;
+        border: solid 3px black;
+        padding: 10px;
+        box-shadow: 2px 2px 1px #eee;
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root1"></div>
+    <div id="root2"></div>
+
+    <div class="car">
+      <h3>Ford Focus</h3>
+      <p><strong>2017 </strong></p>
+    </div>
+
+    <div class="car">
+      <h3>Audi A8</h3>
+      <p><strong>2015</strong></p>
+    </div>
+
+    <div class="car">
+      <h3>BMW X5</h3>
+      <p><strong>2020</strong></p>
+    </div>
+
+    <!-- И т.д. при увеличении машин существенно увеличивается количество html кода -->
+
+    <script type="text/babel">
+    
+      // Создаем функцию, которая будет возвращать структуру определённого компонента
+
+      function Car(props) {
+        return (
+          <div class="car">
+            <h3>{props.name}</h3>
+            <p><strong>{props.year}</strong></p>
+          </div>
+        )
+      }
+
+      const App = (
+        <div>
+          <Car name="Ford Focus" year="2017" />
+          <Car name="Audi A8" year="2020" />
+          <Car name="Ford" year="2027" />
+        </div>
+      )
+      
+      ReactDOM.render(<Car name="Ford" year="2020" />, document.getElementById('root1'));
+      ReactDOM.render(<Car name="Mazda" year="2015" />, document.getElementById('root2'));
+
+      // Любой компонент должен быть обернут в какой-то корневой элемент 
+      // Параметры (атрибуты) у компонентов
+      // Вывод переменных в фигурных скобках
+      // * В метод render можно передавать только 1 компонент
+      
+    </script>
+
+  </body>
+</html>
